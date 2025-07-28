@@ -1,2 +1,11 @@
 def fizzbuzz(number: int) -> str:
-    return str(number)
+    result = ""
+    if number % 3 == 0:
+        result += "Fizz"
+    if number % 5 == 0:
+        result += "Buzz"
+
+    if result != "":
+        return result
+    else:
+        return str(number)
