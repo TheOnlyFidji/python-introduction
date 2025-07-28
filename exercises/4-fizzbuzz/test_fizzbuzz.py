@@ -1,4 +1,4 @@
-from src import fizzbuzz
+from src import *
 
 def test_fizzbuzz():
     assert fizzbuzz(1) == '1'
@@ -15,8 +15,6 @@ def test_5_should_return_buzz():
 def test_15_should_return_fizzbuzz():
     assert fizzbuzz(15) == 'FizzBuzz'
 
-def test_1_to_100():
-    i = 0
-    while i < 100:
-        i += 1
-        print(fizzbuzz(i))
+
+def test_1_to_15():
+    assert fizzbuzz_from_range(0,15) == 'FizzBuzz, 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz'
