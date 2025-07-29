@@ -28,24 +28,28 @@ def roman_numeral(num : int):
 
     return result
 
-def arabicNumeral(num: str):
+def arabic_numeral(num: str):
     digits = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8,
               "IX": 9,
               "X": 10, "XX": 20, "XXX": 30, "XL": 40, "L": 50, "LX": 60, "LXX": 70,
               "LXXX": 80, "XC": 90,
               "C": 100, "CC": 200, "CCC": 300, "CD": 400, "D": 500, "DC": 600, "DCC": 700,
               "DCCC": 800, "CM": 900,
-              "M": 1000, "MM": 2000, "MMM": 3000, "4": "I̅V̅", "5": "V̅", "6": "V̅I̅",
-              "7": "V̅I̅I̅", "8": "V̅I̅I̅I̅", "9": "I̅X̅",
-              "1": "X̅", "2": "X̅X̅", "3": "X̅X̅X̅", "4": "X̅L̅",
-              "5": "L̅", "6": "L̅X̅", "7": "L̅X̅X̅", "8": "L̅X̅X̅X̅", "9": "X̅C"}
+              "M": 1000, "MM": 2000, "MMM": 3000, "I̅V̅": 4000, "V̅": 5000, "V̅I̅": 60000,
+              "V̅I̅I̅": 7000, "V̅I̅I̅I̅": 8000, "I̅X̅": 9000,
+              "X̅": 10000, "X̅X̅": 20000, "X̅X̅X̅": 30000, "X̅L̅": 40000,
+              "L̅": 50000, "L̅X̅": 60000, "L̅X̅X̅": 70000, "L̅X̅X̅X̅": 80000, "X̅C": 90000}
     result = 0
     base = num
     tmp = ""
 
     while base != "":
         tmp = base[:1]
-        while tmp in
+        base = base[1:]
+        while tmp+base[:1] in digits.keys() and base != "":
+            tmp += base[:1]
+            base = base[1:]
+        result += digits[tmp]
 
     return result
 
