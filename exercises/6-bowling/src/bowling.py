@@ -1,61 +1,46 @@
-class strike():
-    def __init__(self, id):
-        self.id = id
+def converter(char: str) -> int:
+    match char:
+        case "-": return 0
+        case "X": return 10
+        case _: return int(char)
 
-    def calc(self, scores):
-        score = scores[self.id+1]+scores[self.id+2]
-        return score
+class Strike:
+    def __init__(self, throw1 : str, throw2 : str):
+        self.throw1 = converter(throw1)
 
-class spare():
-    def __init__(self, id):
-        self.id = id
+        if throw2 == "/": self.throw2 = 10 - self.throw1
+        else: self.throw2 = converter(throw2)
 
-    def calc(self, scores):
-        score = scores[self.id+1]
-        return score
+    def calc(self):
+        return 10 + self.throw1 + self.throw2
 
-class regular():
-    def __init__(self, id):
-        self.id = id
+class Spare:
+    def __init__(self, throw1 : str):
+       self.throw1 = converter(throw1)
 
-    def calc(self, scores):
-        return 0
+    def calc(self):
+        return 10 + self.throw1
+
+class Regular:
+    def __init__(self, throw1, throw2):
+        self.throw1 = converter(throw1)
+        self.throw2 = converter(throw2)
+
+    def calc(self):
+        return self.throw1 + self.throw2
 
 def bowling_score(frames: str):
-    rounds = []
-    scores = []
-    reg = False
+    score = 0
+    frames = frames.split()
+    i = 0
+    for frame in frames[0:10]:
+        if frame == "X":
+            if frames[i+1] == "X": score += Strike(10, frames[i+2][:1]).calc()
+            else: score += Strike(frames[i+1][:1], frames[i+1][1:]).calc()
+        elif frame.endswith("/"):
+            score += Spare(frames[i+1][:1]).calc()
+        else:
+            score += Regular(frame[:1], frame[1:]).calc()
+        i += 1
 
-    chars = list(frames)
-    for char in chars:
-        match char:
-            case "X":
-                rounds.append(strike(len(scores)))
-                scores.append(10)
-            case "/":
-                rounds.append(spare(len(scores)))
-                scores.append(10 - (scores[len(scores) - 1]))
-                reg = False
-            case " ":
-                reg = False
-            case _:
-                if not reg:
-                    reg = True
-                    if char == "-":
-                        scores.append(0)
-                    else:
-                        scores.append(int(char))
-                else:
-                    reg = False
-                    rounds.append(regular(len(scores) - 1))
-                    if char == "-": scores.append(0)
-                    else: scores.append(int(char))
-
-    count = 0
-    total = 0
-    for round in rounds:
-            if count < 9: total += round.calc(scores)
-            count += 1
-
-    total += sum(scores)
-    return total
+    return score

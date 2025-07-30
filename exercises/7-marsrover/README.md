@@ -22,7 +22,8 @@ Si le rover rencontre un obstacle, il ne fait rien et ignore cette commande.
 ```
 
 ## 🖨️ Instruction supplémentaire
-Avant d’implémenter le déplacement du Rover, implementer  un affichage (print) de la carte pour visualiser l’environnement.
+Avant d’implémenter le déplacement du Rover, implementer  un affichage (print) de la carte pour visualiser
+l’environnement.
 
 ## 💧 Bonus : capteur d’eau
 Le Rover est équipé d’un capteur d’eau qui vérifie s’il y a de l’eau sur la case cible à chaque déplacement.
