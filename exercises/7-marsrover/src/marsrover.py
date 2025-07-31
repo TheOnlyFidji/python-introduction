@@ -20,6 +20,7 @@ def double_mapping(map1: str, map2: str):
     map2 = map2.split("\n")
     map_finale = ""
 
+
     i = 0
     for line in map1:
         map_finale += line + "      " + map2[i] + "\n"
