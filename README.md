@@ -1,13 +1,13 @@
 ## Progression des Tests
 
 <!-- START_PROGRESS -->
-- 7-marsrover [>                   ] 0% (0/0) - Coverage: 0%
-- 4-fizzbuzz [>                   ] 0% (0/0) - Coverage: 75%
-- 2-addition [>                   ] 0% (0/1) - Coverage: 71%
-- 1-hello [>                   ] 0% (0/1) - Coverage: 100%
-- 3-reverse [>                   ] 0% (0/1) - Coverage: 71%
-- 6-bowling [>                   ] 0% (0/0) - Coverage: 0%
-- 5-romanconverter [>                   ] 0% (0/0) - Coverage: 0%
+- 7-marsrover [====================>] 100% (7/7) - Coverage: 87%
+- 4-fizzbuzz [====================>] 100% (6/6) - Coverage: 100%
+- 2-addition [====================>] 100% (1/1) - Coverage: 100%
+- 1-hello [====================>] 100% (1/1) - Coverage: 100%
+- 3-reverse [====================>] 100% (1/1) - Coverage: 100%
+- 6-bowling [====================>] 100% (5/5) - Coverage: 100%
+- 5-romanconverter [====================>] 100% (14/14) - Coverage: 100%
 <!-- END_PROGRESS -->
 
 ## Instructions pour démarrer le projet
